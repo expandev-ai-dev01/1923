@@ -7,13 +7,21 @@
  */
 
 import { Router } from 'express';
+import * as productController from '@/api/v1/internal/product/controller';
+import * as categoryController from '@/api/v1/internal/category/controller';
 
 const router = Router();
 
 /**
- * @remarks
- * Internal routes will be added here as features are implemented.
- * Examples: resource management, user operations, protected data access, etc.
+ * @rule {be-product-routes}
+ * Product catalog routes
  */
+router.get('/product', productController.listHandler);
+
+/**
+ * @rule {be-category-routes}
+ * Category navigation routes
+ */
+router.get('/category', categoryController.listHandler);
 
 export default router;
